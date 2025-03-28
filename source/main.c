@@ -16,8 +16,10 @@ int	main(int argc, char **argv, char **envp)
 {
 	(void)argc;
 	(void)argv;
+	char **my_envp;
 
-	ft_read_line(envp);
+	my_envp =ft_array_dup(envp);
+	ft_read_line(&my_envp);
 
 	return (0);
 }

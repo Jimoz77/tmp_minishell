@@ -12,7 +12,7 @@
 
 #include "../include/minishell.h"
 
-void	ft_read_line2(char *input, char **envp)
+void	ft_read_line2(char *input, char ***envp)
 {
 	int status;
 	pid_t pid;
@@ -27,7 +27,7 @@ void	ft_read_line2(char *input, char **envp)
 		if((ft_is_builtin(cmd,envp) == 0))
 		{
 			path = ft_strjoin("/usr/bin/", cmd[0]);
-			execve(path, cmd ,envp);
+			execve(path, cmd ,*envp);
 			perror("execve");
 			exit(1);
 		}
@@ -43,7 +43,7 @@ void	ft_read_line2(char *input, char **envp)
 
 
 
-void	ft_read_line(char **envp)
+void	ft_read_line(char ***envp)
 {
 	char	*input;
 	read_history(".minishell_history");

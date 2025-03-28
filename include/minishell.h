@@ -36,11 +36,13 @@ void			add_token(t_token **list, char *value, t_token_type type);
 t_token_type	get_operator_type(char *str);
 int				operator_length(char *str);
 void			ft_getcwd(void);
-void			ft_read_line(char **envp);
+void			ft_read_line(char ***envp);
 char 			*ft_path_finder(char *cmd);
-int				ft_is_builtin(char **cmd, char **envp);
+int				ft_is_builtin(char **cmd, char ***envp);
 int				ft_cd(char **cmd);
 int				ft_pwd(void);
 int				ft_echo(char **cmd);
 int				ft_env(char **envp);
+int				ft_export(char **cmd, char ***envp);
+char			**ft_array_dup(char **array);
 #endif
